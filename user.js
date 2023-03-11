@@ -1,3 +1,4 @@
+// TODO: https://searchfox.org/mozilla-release/source/modules/libpref/init/all.js
 user_pref("accessibility.typeaheadfind", true);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.compactmode.show", true);
@@ -16,6 +17,7 @@ user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.firefox-view", false);
 user_pref("browser.uidensity", 1);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
+user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.vpn_promo.enabled", false);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
