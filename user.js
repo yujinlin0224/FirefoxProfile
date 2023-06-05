@@ -72,6 +72,8 @@ user_pref("permissions.default.xr", 2);
 user_pref("places.history.expiration.max_pages", 2147483647);
 user_pref("places.history.expiration.transient_current_max_pages", 2147483647);
 user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.query_stripping.enabled", true);
+user_pref("privacy.query_stripping.enabled.pbmode", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", true);
