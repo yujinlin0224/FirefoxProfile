@@ -1,12 +1,19 @@
-@-moz-document url('about:home'), url('about:newtab'), url('about:privatebrowsing') {
+@-moz-document url-prefix("about:") {
   body {
-    background: url('background.png') !important;
+    font-family: "Noto Sans", "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif !important;
+  }
+}
+
+@-moz-document url("about:home"), url("about:newtab"), url("about:privatebrowsing") {
+  body {
+    background: url("background.png") !important;
     background-attachment: fixed !important;
     background-position: center !important;
     background-size: cover !important;
     padding: unset !important;
   }
   main {
+    justify-content: end !important;
     margin-bottom: 0 !important;
   }
   .outer-wrapper.ds-outer-wrapper-breakpoint-override {
@@ -84,7 +91,7 @@
   .showPrivate > .search-inner-wrapper > .search-handoff-button > .fake-caret {
     background-color: var(--in-content-banner-background) !important;
   }
-  .showPrivate > .info {
+  .showPrivate > .info-border {
     display: none !important;
   }
   .top-site-outer {
@@ -104,6 +111,7 @@
     box-shadow: 0 0 6px rgb(0, 0, 0, 0.8) !important;
   }
   .top-site-outer > .top-site-inner > .top-site-button {
+    padding: 0 !important;
     backdrop-filter: blur(12px) !important;
     border-radius: 12px !important;
   }
@@ -133,6 +141,7 @@
     width: 100% !important;
   }
   .top-site-outer > .top-site-inner > .top-site-button > .title {
+    font-family: unset !important;
     padding: 12px 6px !important;
   }
   .top-site-outer > .top-site-inner > .top-site-button > .title .sponsored-label {

@@ -1,7 +1,6 @@
 // TODO: https://searchfox.org/mozilla-release/source/modules/libpref/init/all.js
 user_pref("accessibility.typeaheadfind", true);
 user_pref("browser.aboutConfig.showWarning", false);
-user_pref("browser.compactmode.show", true);
 user_pref("browser.contentblocking.category", "custom");
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.autohideButton", false);
@@ -9,13 +8,14 @@ user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"
 user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
+user_pref("browser.opaqueResponseBlocking", false);
 user_pref("browser.promo.focus.enabled", false);
 user_pref("browser.promo.pin.enabled", false);
 user_pref("browser.search.suggest.enabled.private", true);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.startup.page", 3);
-user_pref("browser.tabs.firefox-view", false);
-user_pref("browser.uidensity", 1);
+user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.theme.windows.accent-color-in-tabs.enabled", true);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.vpn_promo.enabled", false);
@@ -64,6 +64,8 @@ user_pref("gfx.webrender.super-resolution.nvidia", true);
 user_pref("intl.accept_languages", "zh-tw,zh,en-us,en,ja");
 user_pref("layout.css.color-mix.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
+user_pref("layout.css.scroll-anchoring.enabled", false);
+user_pref("media.wmf.hevc.enabled", 1);
 user_pref("network.http.windows-sso.enabled", true);
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.desktop-notification", 2);
@@ -73,23 +75,29 @@ user_pref("permissions.default.xr", 2);
 user_pref("places.history.expiration.max_pages", 2147483647);
 user_pref("places.history.expiration.transient_current_max_pages", 2147483647);
 user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.fingerprintingProtection", true);
+user_pref(
+  "privacy.fingerprintingProtection.overrides",
+  "+AllTargets,-CSSPrefersColorScheme,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-CanvasImageExtractionPrompt,-CanvasRandomization,-FontVisibilityBaseSystem,-FontVisibilityLangPack,-JSDateTimeUTC,-KeyboardEvents,-WidgetEvents,-WindowDevicePixelRatio",
+);
 user_pref("privacy.query_stripping.enabled", true);
 user_pref("privacy.query_stripping.enabled.pbmode", true);
-user_pref("privacy.trackingprotection.enabled", true);
+user_pref(
+  "privacy.query_stripping.strip_list",
+  "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid  __hsfp __hssc __hstc __s _gl _hsenc _kx _openstat at_recipient_id at_recipient_list bbeml bsft_clkid bsft_uid dclid et_rid fb_action_ids fb_comment_id fbclid gbraid gclid guce_referrer guce_referrer_sig hsCtaTracking irclickid mc_eid ml_subscriber ml_subscriber_hash msclkid mtm_cid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id pk_cid rb_clickid s_cid ss_email_id twclid unicorn_click_id vero_conv vero_id vgo_ee wbraid wickedid yclid ymclid ysclid h_sid h_slt mkt_tok igsh igshid ref_src ref_url si __cft__[0] __tn__",
+); // https://github.com/brave/brave-core/blob/master/components/query_filter/utils.cc
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("toolkit.zoomManager.zoomValues", "0.1,0.125,0.2,0.25,0.3,0.3333333333333333,0.375,0.4,0.5,0.6,0.625,0.6666666666666666,0.7,0.75,0.8,0.875,0.9,1.0,1.25,1.3333333333333333,1.5,1.6666666666666667,1.75,2.0,2.5,3.0,3.5,4.0");
-// user_pref("userChrome.DarkTheme.TabFrameColor.Auto.Enabled", true);
-// user_pref("userChrome.DarkTheme.TabFrameSaturation.Low.Enabled", true);
-// user_pref("userChrome.DarkTheme.TabFrameType.Border.Enabled", true);
-user_pref("userChrome.DragSpace.Left.Disabled", true);
-user_pref("userChrome.DragSpace.Right.Disabled", true);
-user_pref("userChrome.NormalContextMenu-Enabled", true);
-user_pref("userChrome.RegularMenuIcons-Enabled", true);
-user_pref("userChrome.TabSeparatorsLowSaturation-Enabled", true);
-user_pref("userChrome.Tabs.Option3.Enabled", true);
-// user_pref("userChrome.Toolbar.Transparency.VeryHigh.Enabled", true);
-// user_pref("userChrome.Windows.SystemEffects.Enabled", true);
+user_pref(
+  "toolkit.zoomManager.zoomValues",
+  "0.1,0.125,0.2,0.25,0.3,0.3333333333333333,0.375,0.4,0.5,0.6,0.625,0.6666666666666666,0.7,0.75,0.8,0.875,0.9,1.0,1.25,1.3333333333333333,1.5,1.6666666666666667,1.75,2.0,2.5,3.0,3.5,4.0",
+);
+user_pref("widget.windows.mica", true);
+user_pref("browser.theme.native-theme", true);
+user_pref("browser.tabs.allow_transparent_browser", true);
+user_pref("gfx.webrender.compositor.force-enabled", true);
+user_pref("sidebar.revamp", true);
+user_pref("sidebar.verticalTabs", true);
