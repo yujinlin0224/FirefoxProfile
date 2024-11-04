@@ -87,8 +87,12 @@
 :root {
   --toolbar-bgcolor: transparent !important;
   --sidebar-background-color: transparent !important;
-  --tabpanel-background-color: var(--toolbarbutton-active-background) !important;
+  --tabpanel-background-color: transparent !important;
   --tab-selected-bgcolor: var(--toolbar-non-lwt-bgcolor) !important;
+}
+
+#tabbrowser-tabpanels .browserStack > browser {
+  background: var(--toolbarbutton-hover-background) !important;
 }
 
 /* When side panel and vertical tabs is enabled */
