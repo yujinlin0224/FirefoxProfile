@@ -92,10 +92,7 @@
 }
 
 #tabbrowser-tabpanels .browserStack > browser {
-  background: light-dark(
-    var(--tab-hover-background-color),
-    var(--toolbarseparator-color)
-  ) !important;
+  background: var(--color-white) !important;
 }
 
 /* When side panel and vertical tabs is enabled */
