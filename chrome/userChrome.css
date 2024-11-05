@@ -126,15 +126,23 @@
     transform: translateY(4px) !important;
   }
 
+  #sidebar-main {
+    margin-block-start: calc(var(--tab-block-margin) * -1 - 0.5px) !important;
+  }
+
   #sidebar-box {
+    margin-block-start: -0.5px !important;
     padding-block-end: var(--toolbar-start-end-padding) !important;
-    padding-inline-end: calc(var(--toolbar-start-end-padding) + 0.5px) !important;
+    padding-inline-end: var(--toolbar-start-end-padding) !important;
   }
 
   #sidebar-splitter {
     --splitter-width: var(--toolbar-start-end-padding) !important;
-    margin-inline-start: calc(var(--splitter-width) * -1 - 0.5px) !important;
-    margin-inline-end: 0.5px !important;
+    margin-inline-start: calc(var(--splitter-width) * -1) !important;
+  }
+
+  #tabbrowser-tabbox {
+    margin-inline-start: 0.5px !important;
   }
 
   #tabbrowser-tabs {
@@ -145,24 +153,26 @@
     margin-block-end: var(--tab-block-margin) !important;
   }
 
-  #tabbrowser-tabs > #vertical-pinned-tabs-container {
-    margin-block-start: calc(var(--tab-block-margin) * -1 - 0.5px) !important;
-  }
-
   #tabbrowser-tabs[expanded] > #vertical-pinned-tabs-container .tab-background {
     margin-inline: var(--tab-block-margin) !important;
   }
 
   .tools-and-extensions.actions-list[orientation="horizontal"] {
     --first-last-button-width: calc(
-      var(--button-size-icon) + var(--tab-inner-inline-margin) + var(--tab-block-margin)
+      var(--button-size-icon) + var(--tab-block-margin) + var(--tab-inner-inline-margin)
     ) !important;
-    grid-template-columns:
-      var(--first-last-button-width) repeat(
-        4,
-        calc(var(--button-size-icon) + var(--tab-block-margin))
-      )
-      var(--first-last-button-width) !important;
+    --middle-button-width: calc(var(--button-size-icon) + var(--tab-block-margin) * 2) !important;
+    --button-count: 8 !important; /* default is 6 but 8 is more comfortable */
+    /* grid-template-columns: var(--first-last-button-width) repeat(
+        calc(var(--button-count) - 2),
+        var(--middle-button-width)
+      ) var(--first-last-button-width) !important; */
+    min-width: calc(
+      var(--first-last-button-width) * 2 + var(--middle-button-width) * (var(--button-count) - 2)
+    ) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
   }
 
   .tools-and-extensions.actions-list > moz-button.tools-overflow {
