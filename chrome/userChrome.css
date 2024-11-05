@@ -84,14 +84,20 @@
 
 /* Make window transparent to apply Windows 11 Mica effect */
 
+
 :root {
   --toolbar-bgcolor: transparent !important;
-  --sidebar-background-color: var(--tab-hover-background-color) !important;
-  --tabpanel-background-color: var(--tab-hover-background-color) !important;
   --tab-selected-bgcolor: var(--button-background-color-active) !important;
+
+  /* Reference: `LayerOnMicaBaseAltFillColorDefault` of
+      https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Fluent/Themes/Fluent.Light.xaml
+      https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Fluent/Themes/Fluent.Dark.xaml
+  */
+  --sidebar-background-color: light-dark(#FFFFFFB3, #3A3A3A73) !important;
+  --tabpanel-background-color: light-dark(#FFFFFFB3, #3A3A3A73) !important;
 }
 
-#tabbrowser-tabpanels .browserStack > browser {
+#tabbrowser-tabpanels .browserStack {
   background: var(--color-white) !important;
 }
 
@@ -133,15 +139,18 @@
   #sidebar-box {
     margin-block-start: -0.5px !important;
     padding-block-end: var(--toolbar-start-end-padding) !important;
+    /* FIXME: not considered if side panel is set to the right */
     padding-inline-end: var(--toolbar-start-end-padding) !important;
   }
 
   #sidebar-splitter {
     --splitter-width: var(--toolbar-start-end-padding) !important;
+    /* FIXME: not considered if side panel is set to the right */
     margin-inline-start: calc(var(--splitter-width) * -1) !important;
   }
 
   #tabbrowser-tabbox {
+    /* FIXME: not considered if side panel is set to the right */
     margin-inline-start: 0.5px !important;
   }
 
@@ -176,7 +185,8 @@
   }
 
   .tools-and-extensions.actions-list > moz-button.tools-overflow {
-    --button-outer-padding-inline: var(--tab-block-margin) !important;
+    --button-outer-padding-inline-start: var(--tab-block-margin) !important;
+    --button-outer-padding-inline-end: var(--tab-block-margin) !important;
     --button-outer-padding-block: var(--tab-inner-inline-margin) !important;
   }
 
@@ -203,29 +213,20 @@
     --button-outer-padding-block-end: var(--tab-inner-inline-margin) !important;
   }
 
-  /* Round the top-left corner of the browser (ensure the side panel is set to the left) */
+  /* Round the top-left corner of the browser */
 
   #browser:has(> [id^="sidebar"]:not([hidden="true"])) > #tabbrowser-tabbox {
-    border-top-left-radius: var(--border-radius-medium) !important;
+    overflow: hidden !important;
   }
 
-  #browser:has(> [id^="sidebar"]:not([hidden="true"])) > #tabbrowser-tabbox #tabbrowser-tabpanels {
-    border-top-left-radius: var(--border-radius-medium) !important;
+  #browser:has(> [id^="sidebar"]:not([hidden="true"])) > #tabbrowser-tabbox[style="order: 2;"] {
+    border-top-right-radius: var(--border-radius-medium) !important;
+    overflow: hidden !important;
   }
 
-  #browser:has(> [id^="sidebar"]:not([hidden="true"]))
-    .browserSidebarContainer
-    > .browserContainer:first-child
-    > browser:first-child,
-  #browser:has(> [id^="sidebar"]:not([hidden="true"]))
-    .browserSidebarContainer
-    > .browserContainer:first-child
-    > .browserStack:first-child
-    > browser,
-  #browser:has(> [id^="sidebar"]:not([hidden="true"]))
-    .browserSidebarContainer
-    > browser:first-child {
+  #browser:has(> [id^="sidebar"]:not([hidden="true"])) > #tabbrowser-tabbox[style="order: 4;"] {
     border-top-left-radius: var(--border-radius-medium) !important;
+    overflow: hidden !important;
   }
 }
 
