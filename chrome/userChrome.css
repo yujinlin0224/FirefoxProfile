@@ -84,7 +84,6 @@
 
 /* Make window transparent to apply Windows 11 Mica effect */
 
-
 :root {
   --toolbar-bgcolor: transparent !important;
   --tab-selected-bgcolor: var(--button-background-color-active) !important;
@@ -93,11 +92,11 @@
       https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Fluent/Themes/Fluent.Light.xaml
       https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Fluent/Themes/Fluent.Dark.xaml
   */
-  --sidebar-background-color: light-dark(#FFFFFFB3, #3A3A3A73) !important;
-  --tabpanel-background-color: light-dark(#FFFFFFB3, #3A3A3A73) !important;
+  --sidebar-background-color: light-dark(#ffffffb3, #3a3a3a73) !important;
+  --tabpanel-background-color: light-dark(#ffffffb3, #3a3a3a73) !important;
 }
 
-#tabbrowser-tabpanels .browserStack {
+#tabbrowser-tabpanels .browserStack:has(> browser[transparent="true"]) {
   background: var(--color-white) !important;
 }
 
@@ -171,7 +170,7 @@
       var(--button-size-icon) + var(--tab-block-margin) + var(--tab-inner-inline-margin)
     ) !important;
     --middle-button-width: calc(var(--button-size-icon) + var(--tab-block-margin) * 2) !important;
-    --button-count: 8 !important; /* default is 6 but 8 is more comfortable */
+    --button-count: 7 !important; /* default is 6 but 7 is more comfortable */
     /* grid-template-columns: var(--first-last-button-width) repeat(
         calc(var(--button-count) - 2),
         var(--middle-button-width)

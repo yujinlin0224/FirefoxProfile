@@ -97,7 +97,6 @@ user_pref(
 );
 user_pref("widget.windows.mica", true);
 user_pref("browser.theme.native-theme", true);
-user_pref("browser.tabs.allow_transparent_browser", true);
 user_pref("gfx.webrender.compositor.force-enabled", true);
 user_pref("sidebar.revamp", true);
 user_pref("sidebar.verticalTabs", true);
